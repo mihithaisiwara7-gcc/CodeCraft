@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="CodeCraft signal spark">
+  <rect width="128" height="128" fill="#0b1220"/>
+  <path d="M26 80V47c0-5 4-9 9-9h5v51h-5c-5 0-9-4-9-9Z" fill="#f4b860"/>
+  <path d="M52 92V32c0-5 4-9 9-9h6v78h-6c-5 0-9-4-9-9Z" fill="#73d9db"/>
+  <path d="M82 72V56c0-5 4-9 9-9h5v34h-5c-5 0-9-4-9-9Z" fill="#a8e2c5"/>
+  <path d="m18 27 8-8 84 84-8 8Z" fill="#0b1220" opacity=".35"/>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "name": "codecraft-qr-barcode-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A school-project-friendly QR code and barcode generator built with Node.js and HTML.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bwip-js": "4.5.1",
+    "express": "^4.22.3",
+    "qrcode": "1.5.4"
+  }
+}

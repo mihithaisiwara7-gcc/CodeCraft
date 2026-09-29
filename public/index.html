@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1220" />
+    <meta name="description" content="A friendly QR code and barcode generator for school projects." />
+    <link rel="icon" href="/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>CodeCraft — QR & Barcode Generator</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="CodeCraft home">
+          <img class="brand-mark" src="/logo.svg" alt="" />
+          <span>
+            <span class="brand-name">CodeCraft</span>
+            <span class="brand-caption">QR &amp; BARCODE LAB</span>
+          </span>
+        </a>
+        <div class="header-note"><span class="pulse-dot"></span> Runs locally in your browser</div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div>
+            <p class="eyebrow">MAKE IT SCANNABLE <span></span> SCHOOL PROJECT TOOL</p>
+            <h1>Turn an idea into a <em>signal.</em></h1>
+            <p class="hero-copy">Type something, tune the look, and create a downloadable code in seconds. No sign-in, no saved data, no mystery.</p>
+          </div>
+          <div class="hero-stats" aria-label="Tool highlights">
+            <div><strong>02</strong><span>code types</span></div>
+            <div><strong>06</strong><span>barcode formats</span></div>
+            <div><strong>PNG</strong><span>download ready</span></div>
+          </div>
+        </section>
+
+        <div class="workspace">
+          <section class="panel controls-panel" aria-labelledby="controls-title">
+            <div class="panel-heading">
+              <div class="step-number">01</div>
+              <div><p class="section-kicker">CONTROL DECK</p><h2 id="controls-title">Build your code</h2></div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Code type</label>
+              <div class="segmented" role="group" aria-label="Choose code type">
+                <button type="button" class="segment active" data-mode="qr"><span class="segment-icon">▦</span> QR code</button>
+                <button type="button" class="segment" data-mode="barcode"><span class="segment-icon">▥</span> Barcode</button>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="value">Your value <span class="required">required</span></label>
+              <textarea id="value" rows="3" maxlength="2048" placeholder="Type a URL, message, product number, or anything else…">https://example.com/school-project</textarea>
+              <div class="input-meta"><span id="value-hint">QR codes can hold text, links, and more.</span><span id="char-count">0 / 2,048</span></div>
+              <div class="examples" aria-label="Example values">
+                <button type="button" class="example-chip" data-value="https://example.com/school-project">URL</button>
+                <button type="button" class="example-chip" data-value="Hello from CodeCraft!">Message</button>
+                <button type="button" class="example-chip" data-value="SCHOOL-2026">Code</button>
+              </div>
+            </div>
+
+            <div class="options-divider"><span>APPEARANCE OPTIONS</span></div>
+
+            <div id="qr-options" class="options-section">
+              <div class="two-col">
+                <div class="field-group compact"><label class="field-label" for="error-correction">Error correction</label><select id="error-correction"><option value="L">L — 7% recovery</option><option value="M" selected>M — 15% recovery</option><option value="Q">Q — 25% recovery</option><option value="H">H — 30% recovery</option></select></div>
+                <div class="field-group compact"><label class="field-label" for="box-size">Module size <output id="box-size-output">8</output></label><input id="box-size" type="range" min="2" max="20" value="8" /></div>
+              </div>
+              <div class="two-col">
+                <div class="field-group compact"><label class="field-label" for="border">Quiet border <output id="border-output">4</output></label><input id="border" type="range" min="4" max="12" value="4" /></div>
+                <div class="field-group compact color-field"><label class="field-label" for="fill-color">Foreground</label><div class="color-control"><input id="fill-color" type="color" value="#10233f" /><code id="fill-color-value">#10233F</code></div></div>
+              </div>
+              <div class="field-group compact color-field"><label class="field-label" for="back-color">Background</label><div class="color-control"><input id="back-color" type="color" value="#f8f5ef" /><code id="back-color-value">#F8F5EF</code></div></div>
+            </div>
+
+            <div id="barcode-options" class="options-section hidden">
+              <div class="two-col">
+                <div class="field-group compact"><label class="field-label" for="barcode-format">Format</label><select id="barcode-format"><option value="code128">Code 128 — flexible</option><option value="code39">Code 39 — uppercase</option><option value="ean13">EAN-13 — retail</option><option value="ean8">EAN-8 — compact retail</option><option value="upca">UPC-A — product</option><option value="isbn13">ISBN-13 — books</option></select></div>
+                <div class="field-group compact"><label class="field-label" for="height">Bar height <output id="height-output">70</output></label><input id="height" type="range" min="30" max="140" value="70" /></div>
+              </div>
+              <div class="two-col">
+                <div class="field-group compact color-field"><label class="field-label" for="bar-color">Bar color</label><div class="color-control"><input id="bar-color" type="color" value="#10233f" /><code id="bar-color-value">#10233F</code></div></div>
+                <div class="field-group compact color-field"><label class="field-label" for="bar-background">Background</label><div class="color-control"><input id="bar-background" type="color" value="#f8f5ef" /><code id="bar-background-value">#F8F5EF</code></div></div>
+              </div>
+              <label class="check-row"><input id="show-text" type="checkbox" checked /><span class="custom-check"></span><span>Show value beneath the bars</span></label>
+              <p id="barcode-hint" class="field-hint">Code 128 accepts letters, numbers, spaces, and symbols.</p>
+            </div>
+
+            <button id="generate-button" type="button" class="primary-button"><span>Generate code</span><span class="button-arrow">↗</span></button>
+            <p class="privacy-note"><span>✦</span> Your value stays in memory for this session and is never stored.</p>
+          </section>
+
+          <section class="panel preview-panel" aria-labelledby="preview-title">
+            <div class="panel-heading preview-heading">
+              <div class="step-number cyan">02</div>
+              <div><p class="section-kicker">OUTPUT STAGE</p><h2 id="preview-title">Preview &amp; export</h2></div>
+              <span id="output-badge" class="output-badge">WAITING</span>
+            </div>
+            <div id="status" class="status" role="status" aria-live="polite"></div>
+            <div id="preview-empty" class="preview-empty"><div class="empty-grid"></div><div class="empty-icon">▦</div><h3>Your code will appear here</h3><p>Choose your settings, then hit <strong>Generate code</strong> to see the result.</p></div>
+            <div id="preview-result" class="preview-result hidden"><div class="image-frame"><img id="generated-image" alt="Generated code preview" /></div><div class="result-meta"><div><span class="meta-label">SOURCE VALUE</span><code id="result-value"></code></div><button id="copy-button" class="ghost-button" type="button">Copy value</button></div></div>
+            <div class="preview-actions"><button id="download-button" class="download-button" type="button" disabled><span>Download PNG</span><span>↓</span></button><p id="download-note">Generate a code to unlock the download.</p></div>
+            <div class="tips"><div class="tips-mark">i</div><div><strong>Quick tip</strong><p id="tip-text">For a scannable QR code, keep strong contrast between the foreground and background.</p></div></div>
+          </section>
+        </div>
+      </main>
+      <footer><span>CODECRAFT / SCHOOL PROJECT LAB</span><span>Built with Node.js + HTML</span></footer>
+    </div>
+    <script src="/app.js"></script>
+  </body>
+</html>
